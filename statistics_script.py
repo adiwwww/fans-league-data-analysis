@@ -46,7 +46,6 @@ def logistic_regression_sklearn(X, y):
     p_values = pd.DataFrame(p_values_calc,
                    columns=independent_cols)
 #    print('P Value:', p_values_calc, '\n')
-
     return result_table, p_values
 
 # =============================================================================
@@ -82,9 +81,6 @@ def correlation(independent_cols,data):
     plt.show()
     return corr_data
 
-
-import pandas as pd
-import numpy as np
 # =============================================================================
 # Reads the main table of all year data, and keeps only "Big Team Fans"
 # =============================================================================
@@ -179,9 +175,12 @@ def percentage_from_survived(field):
     new_table_true = result_t_test.loc[True].loc[True]
     return new_table_true
 
+# Turn the varaibles to boolean futures.
+    
 #data['ratio_poll'] = np.where(data['ratio_poll'] > data['ratio_poll'].quantile(0.5), True,False)
 #data['ratio_trivia'] = np.where(data['ratio_trivia'] > data['ratio_trivia'].quantile(0.5), True,False)
 #data['ratio_article'] = np.where(data['ratio_article'] > data['ratio_article'].quantile(0.5), True,False)
+
 data[independent_cols[0:len(independent_cols)]] = np.where(data[independent_cols[0:len(independent_cols)]] > 0, True,False)
 
 
